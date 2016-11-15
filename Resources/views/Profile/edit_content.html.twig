@@ -2,7 +2,7 @@
 
 <div class="form-form_wrap">
     <h1>Profile Update</h1>
-    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST">
+    {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
         {{ form_errors(form) }}
 
         {{ form_row(form.email) }}
