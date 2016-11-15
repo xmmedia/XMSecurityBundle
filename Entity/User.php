@@ -73,7 +73,7 @@ class User extends BaseUser
      */
     public function isActive()
     {
-        if ($this->isEnabled() && !$this->isLocked() && !$this->isExpired() && !$this->isCredentialsExpired()) {
+        if ($this->isEnabled() && !$this->isLocked()) {
             return true;
         }
 
