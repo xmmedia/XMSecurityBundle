@@ -39,9 +39,8 @@ class ProfileFormType extends AbstractType
 
     /**
      * {@inheritdoc}
-     * @todo switch to getBlockPrefix()
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'xm_security_user_profile';
     }

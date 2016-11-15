@@ -43,7 +43,7 @@ class RegistrationFormType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'xm_security_user_registration';
     }
