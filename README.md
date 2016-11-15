@@ -5,7 +5,7 @@ Extends the FOSUserBundle customizing and adding some functionality.
 
 ### Step 1: Download the Bundle
 
-**This package is not on composer, so the repository will need to be added manually in composer.json**
+**This package is not on Packagist, so the repository will need to be added manually in composer.json**
 
 Open a command console, enter your project directory and execute the
 following command to download the latest stable version of this bundle:
