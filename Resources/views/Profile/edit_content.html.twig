@@ -1,0 +1,19 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="form-form_wrap">
+    <h1>Profile Update</h1>
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST">
+        {{ form_errors(form) }}
+
+        {{ form_row(form.email) }}
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.lastName) }}
+
+        {{ form_row(form.current_password) }}
+
+        <div class="form-button_wrap">
+            <button>{{ 'profile.edit.submit'|trans }}</button>
+            <a href="{{ path('fos_user_change_password') }}" class="form-action_link">Change Password</a>
+        </div>
+    {{ form_end(form) }}
+</div>

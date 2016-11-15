@@ -1,0 +1,28 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="form-form_wrap">
+    <h1>Register</h1>
+    <p>Complete the form below to create an account.</p>
+
+    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+        {{ form_errors(form) }}
+
+        {{ form_row(form.email) }}
+        {{ form_row(form.firstName) }}
+        {{ form_row(form.lastName) }}
+
+        <div class="form-field_wrap">
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_errors(form.plainPassword.first) }}
+            {# the autocomplete attr is for Safari & autofill #}
+            {{ form_widget(form.plainPassword.first, { 'attr' : { 'autocomplete' : 'new-password' }}) }}
+            <div class="form-field_help">Use at least 8 characters.</div>
+        </div>
+
+        {{ form_row(form.plainPassword.second) }}
+
+        <div class="form-button_wrap">
+            <button>{{ 'registration.submit'|trans }}</button>
+        </div>
+    {{ form_end(form) }}
+</div>

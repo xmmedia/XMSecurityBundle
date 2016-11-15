@@ -1,0 +1,17 @@
+{% extends 'Mail/base.html.twig' %}
+
+{% trans_default_domain 'XMSecurityBundle' %}
+
+{% block subject %}User Registered – {{ user.name|raw }}{% endblock %}
+
+{% block body_text_inner %}{% endblock %}
+
+{% block body_html_inner %}
+    <p>A new user has registered:</p>
+
+    <blockquote>
+        <strong>Name:</strong> {{ user.name }}<br>
+        <strong>Email/Username:</strong> <a href="mailto:{{ user.username }}">{{ user.username }}</a><br>
+        <strong>Date/Time:</strong> {{ 'now'|date("Y-m-d H:i") }}
+    </blockquote>
+{% endblock body_html_inner %}

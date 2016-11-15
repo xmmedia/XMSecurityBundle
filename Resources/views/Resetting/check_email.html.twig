@@ -1,0 +1,11 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block page_title %}Password Reset | {% endblock %}
+
+{% block fos_user_content %}
+    <div class="alert alert-type-info">
+        {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime}) }}
+    </div>
+{% endblock %}

@@ -1,0 +1,9 @@
+# this is YAML because FOS User Bundle is
+registration:
+    check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account. It may take a few minutes to arrive. If it doesn't, please check your spam/junk folder before contacting us.
+    flash:
+        user_created: Your account has been created successfully.
+
+security:
+    login:
+        submit: Login

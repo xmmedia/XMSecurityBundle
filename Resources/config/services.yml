@@ -1,0 +1,33 @@
+services:
+    # listeners
+    xm_security.auth.authentication_success_handler:
+        class: XM\SecurityBundle\Handler\AuthenticationSuccessHandler
+        arguments: ["@security.http_utils", {}, "@security.authorization_checker"]
+
+    xm_security.auth.authentication_logger_listener:
+        class: XM\SecurityBundle\Listener\AuthenticationLoggerListener
+        arguments: ["@security.token_storage", "@request_stack", "@fos_user.user_manager", "@doctrine.orm.entity_manager"]
+        private: true
+        tags:
+            - { name: kernel.event_subscriber }
+
+    xm_security.auth.registration_listener:
+        class: XM\SecurityBundle\Listener\RegistrationListener
+        arguments: ["@fos_user.user_manager", "@app.mail_manager", "%admin_email%"]
+        private: true
+        tags:
+            - { name: kernel.event_subscriber }
+
+    xm_security.auth.registration_confirm_listener:
+        class: XM\SecurityBundle\Listener\RegistrationConfirmListener
+        arguments: ["@router"]
+        private: true
+        tags:
+            - { name: kernel.event_subscriber }
+
+    xm_security.auth.profile_listener:
+        class: XM\SecurityBundle\Listener\ProfileListener
+        arguments: ["@router"]
+        private: true
+        tags:
+            - { name: kernel.event_subscriber }

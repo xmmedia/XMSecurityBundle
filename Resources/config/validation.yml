@@ -1,0 +1,76 @@
+XM\SecurityBundle\Entity\User:
+    properties:
+        firstName:
+            - NotBlank:
+                message: xm_security.validation.user.first_name.blank
+                groups: [ "Registration", "Profile" ]
+            - Length:
+                min: 2
+                minMessage: xm_security.validation.user.first_name.short
+                max: 255
+                maxMessage: xm_security.validation.user.first_name.long
+                groups: [ "Registration", "Profile" ]
+        lastName:
+            - NotBlank:
+                message: xm_security.validation.user.last_name.blank
+                groups: [ "Registration", "Profile" ]
+            - Length:
+                min: 2
+                minMessage: xm_security.validation.user.last_name.short
+                max: 255
+                maxMessage: xm_security.validation.user.last_name.long
+                groups: [ "Registration", "Profile" ]
+
+# overriding validation for FOS user bundle
+
+# Note: We still want to validate the email
+# See FOSUserBundle/Resources/config/validation/orm.xml to understand
+# the UniqueEntity constraint that was originally applied to both
+# username and email fields
+#
+# As you can see, we are only applying the UniqueEntity constraint to
+# the email field and not the username field.
+FOS\UserBundle\Model\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+             fields: email
+             errorPath: email
+             message: fos_user.email.already_used
+             groups: [ "Registration", "Profile" ]
+
+    properties:
+        email:
+            - NotBlank:
+                message: fos_user.email.blank
+                groups: [ "Registration", "Profile" ]
+            - Length:
+                min: 6
+                minMessage: fos_user.email.short
+                max: 255
+                maxMessage: fos_user.email.long
+                groups: [ "Registration", "ResetPassword" ]
+            - Email:
+                message: fos_user.email.invalid
+                groups: [ "Registration", "Profile" ]
+        plainPassword:
+            - NotBlank:
+                message: fos_user.password.blank
+                groups: [ "Registration", "ResetPassword", "ChangePassword" ]
+            - Length:
+                min: 8
+                max: 4096
+                minMessage: fos_user.password.short
+                groups: [ "Registration", "Profile", "ResetPassword", "ChangePassword"]
+
+FOS\UserBundle\Model\Group:
+    properties:
+        name:
+            - NotBlank:
+                message: fos_user.group.blank
+                groups: [ "Registration" ]
+            - Length:
+                min: 2
+                minMessage: fos_user.group.short
+                max: 255
+                maxMessage: fos_user.group.long
+                groups: [ "Registration" ]
