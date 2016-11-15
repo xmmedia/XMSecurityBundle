@@ -1,0 +1,26 @@
+{
+    "name": "xm/security-bundle",
+    "description": "Extends the FOSUserBundle customizing and adding some functionality.",
+    "type": "symfony-bundle",
+    "homepage": "https://github.com/xmmedia/XMSecurityBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Darryl Hein",
+            "email": "dhein@xmmedia.com"
+        }
+    ],
+    "require": {
+        "php": "^5.6 || ^7.0",
+        "friendsofsymfony/user-bundle": "~2.0@dev",
+        "symfony/form": "^2.8 || ^3.0",
+        "symfony/framework-bundle": "^2.8 || ^3.0",
+        "doctrine/orm": "^2.4.8"
+    },
+    "autoload": {
+        "psr-4": { "XM\\SecurityBundle\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    }
+}
