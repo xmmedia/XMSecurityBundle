@@ -6,7 +6,7 @@ services:
 
     xm_security.auth.authentication_logger_listener:
         class: XM\SecurityBundle\Listener\AuthenticationLoggerListener
-        arguments: ["@security.token_storage", "@request_stack", "@fos_user.user_manager", "@doctrine.orm.entity_manager"]
+        arguments: ["@security.token_storage", "@request_stack", "@fos_user.user_manager", "@doctrine.orm.entity_manager", 'AppBundle\Entity\AuthLog']
         tags:
             - { name: kernel.event_subscriber }
 
