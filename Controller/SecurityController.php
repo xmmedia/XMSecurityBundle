@@ -9,6 +9,12 @@ use Symfony\Component\Security\Core\Security;
 class SecurityController extends BaseSecurityController
 {
     /**
+     * The target path, used during the login and passed to the login view.
+     * @var string
+     */
+    protected $targetPath;
+
+    /**
      * {@inheritdoc}
      */
     public function loginAction(Request $request)
@@ -22,8 +28,21 @@ class SecurityController extends BaseSecurityController
         }
 
         $this->pullUsernameFromQuery($request);
+        $this->pullTargetPathFromQuery($request);
 
         return parent::loginAction($request);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function renderLogin(array $data)
+    {
+        if ($this->targetPath) {
+            $data['target_path'] = $this->targetPath;
+        }
+
+        return parent::renderLogin($data);
     }
 
     /**
@@ -41,6 +60,20 @@ class SecurityController extends BaseSecurityController
                 $request->getSession()
                     ->set(Security::LAST_USERNAME, $queryUsername);
             }
+        }
+    }
+
+    /**
+     * Populates the target path/URL property based on the request query param.
+     *
+     * @param Request $request
+     */
+    protected function pullTargetPathFromQuery(Request $request)
+    {
+        $targetPath = $request->query->get('target_path');
+
+        if ($targetPath) {
+            $this->targetPath = $targetPath;
         }
     }
 }
