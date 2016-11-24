@@ -71,10 +71,10 @@ class AuthLog
     /**
      * Set user
      *
-     * @param User $user
+     * @param \XM\SecurityBundle\Entity $user
      * @return AuthLog
      */
-    public function setUser(User $user = null)
+    public function setUser(\XM\SecurityBundle\Entity $user = null)
     {
         $this->user = $user;
 
@@ -84,7 +84,7 @@ class AuthLog
     /**
      * Get user
      *
-     * @return User
+     * @return \XM\SecurityBundle\Entity
      */
     public function getUser()
     {

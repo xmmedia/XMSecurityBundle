@@ -60,7 +60,7 @@ class RegistrationListener implements EventSubscriberInterface
      */
     public function setRegistrationDate(FilterUserResponseEvent $event)
     {
-        /** @var \XM\SecurityBundle\Entity\User $user */
+        /** @var \XM\SecurityBundle\Entity $user */
         $user = $event->getUser();
 
         $user->setRegistrationDate(new \DateTime());
@@ -90,7 +90,7 @@ class RegistrationListener implements EventSubscriberInterface
      */
     public function incrementLoginCount(FilterUserResponseEvent $event)
     {
-        /** @var \XM\SecurityBundle\Entity\User $user */
+        /** @var \XM\SecurityBundle\Entity $user */
         $user = $event->getUser();
 
         $user->incrementLoginCount();
