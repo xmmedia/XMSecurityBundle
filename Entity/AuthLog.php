@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 class AuthLog
 {
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="authLogs")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="authLogs")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     protected $user;
@@ -71,10 +71,10 @@ class AuthLog
     /**
      * Set user
      *
-     * @param \AppBundle\Entity\User $user
+     * @param User $user
      * @return AuthLog
      */
-    public function setUser(\AppBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -84,7 +84,7 @@ class AuthLog
     /**
      * Get user
      *
-     * @return \AppBundle\Entity\User
+     * @return User
      */
     public function getUser()
     {
