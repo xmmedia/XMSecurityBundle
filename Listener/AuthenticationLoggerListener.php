@@ -2,7 +2,6 @@
 
 namespace XM\SecurityBundle\Listener;
 
-use AppBundle\Entity\AuthLog;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -24,17 +23,29 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
     protected $requestStack;
     protected $userManager;
     protected $em;
+    protected $authLogClass;
 
+    /**
+     * AuthenticationLoggerListener constructor.
+     *
+     * @param TokenStorage $tokenStorage
+     * @param RequestStack $requestStack
+     * @param UserManager $userManager
+     * @param ObjectManager $em
+     * @param string $authLogClass
+     */
     public function __construct(
         TokenStorage $tokenStorage,
         RequestStack $requestStack,
         UserManager $userManager,
-        ObjectManager $em
+        ObjectManager $em,
+        $authLogClass
     ) {
         $this->tokenStorage = $tokenStorage;
         $this->requestStack = $requestStack;
         $this->userManager = $userManager;
         $this->em = $em;
+        $this->authLogClass = $authLogClass;
     }
 
     /**
@@ -55,7 +66,7 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
      */
     public function logSuccess()
     {
-        /** @var \XM\SecurityBundle\Entity\User $user */
+        /** @var XM\SecurityBundle\Entity\User $user */
         $user = $this->tokenStorage->getToken()->getUser();
 
         $user->incrementLoginCount();
@@ -71,7 +82,7 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
      */
     public function logRegistrationSuccess()
     {
-        /** @var \XM\SecurityBundle\Entity\User $user */
+        /** @var XM\SecurityBundle\Entity\User $user */
         $user = $this->tokenStorage->getToken()->getUser();
 
         $this->addLogSuccess($user);
@@ -107,7 +118,9 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
     {
         $request = $this->requestStack->getCurrentRequest();
 
-        $authLog = new AuthLog();
+        /** @var XM\SecurityBundle\Entity\AuthLog $authLog */
+        $authLog = new $this->authLogClass();
+        $authLog->setDatetime(new \DateTimeImmutable());
         $authLog->setUserAgent($request->headers->get('User-Agent'));
         $authLog->setIpAddress($request->getClientIp());
 

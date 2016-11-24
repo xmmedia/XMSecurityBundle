@@ -3,7 +3,6 @@
 namespace XM\SecurityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * AuthLog
@@ -27,7 +26,6 @@ class AuthLog
      * @var \DateTimeInterface
      *
      * @ORM\Column(name="datetime", type="datetime")
-     * @Gedmo\Timestampable(on="create")
      */
     protected $datetime;
 
