@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 
 class RegistrationController extends BaseRegistrationController
 {
+    /**
+     * {@inheritdoc}
+     */
     public function registerAction(Request $request)
     {
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
@@ -16,6 +19,9 @@ class RegistrationController extends BaseRegistrationController
         return parent::registerAction($request);
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function confirmAction(Request $request, $token)
     {
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
