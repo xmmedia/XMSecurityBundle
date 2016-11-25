@@ -3,6 +3,7 @@
 namespace XM\SecurityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * AuthLog
@@ -71,10 +72,10 @@ class AuthLog
     /**
      * Set user
      *
-     * @param \XM\SecurityBundle\Entity $user
+     * @param UserInterface $user
      * @return AuthLog
      */
-    public function setUser(\XM\SecurityBundle\Entity $user = null)
+    public function setUser(UserInterface $user = null)
     {
         $this->user = $user;
 
@@ -84,7 +85,7 @@ class AuthLog
     /**
      * Get user
      *
-     * @return \XM\SecurityBundle\Entity
+     * @return UserInterface
      */
     public function getUser()
     {
