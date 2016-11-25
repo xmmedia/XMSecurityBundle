@@ -27,3 +27,9 @@ services:
         arguments: ["@router"]
         tags:
             - { name: kernel.event_subscriber }
+
+    xm_security.auth.resetting_listener:
+        class: XM\SecurityBundle\Listener\ResettingListener
+        arguments: ["@router"]
+        tags:
+            - { name: kernel.event_subscriber }
