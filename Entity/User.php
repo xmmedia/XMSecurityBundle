@@ -9,8 +9,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @UniqueEntity("email", message="xm_security.validation.user.email_unique")
- * @UniqueEntity("username")
+ * @UniqueEntity("email", message="xm_security.validation.user.email_unique", groups={"Registration", "Profile"})
+ * @UniqueEntity("username", groups={"Registration", "Profile"})
  */
 class User extends BaseUser
 {
@@ -20,8 +20,8 @@ class User extends BaseUser
      * @ORM\Column(name="first_name", type="string", length=255, nullable=true,
      *     options={"collation":"utf8mb4_unicode_ci"}
      * )
-     * @Assert\NotBlank
-     * @Assert\Length(min=2,max=255)
+     * @Assert\NotBlank(groups={"Registration", "Profile"})
+     * @Assert\Length(min=2, max=255, groups={"Registration", "Profile"})
      */
     protected $firstName;
 
@@ -31,8 +31,8 @@ class User extends BaseUser
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true,
      *     options={"collation":"utf8mb4_unicode_ci"}
      * )
-     * @Assert\NotBlank
-     * @Assert\Length(min=2,max=255)
+     * @Assert\NotBlank(groups={"Registration", "Profile"})
+     * @Assert\Length(min=2, max=255, groups={"Registration", "Profile"})
      */
     protected $lastName;
 
