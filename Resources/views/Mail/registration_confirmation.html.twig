@@ -4,7 +4,7 @@
 
 {% block subject %}
     {% autoescape false %}
-        {{ 'resetting.email.subject'|trans({'%username%': user.username}) }}
+        {{ 'registration.email.subject'|trans({'%username%': user.username}) }}
     {% endautoescape %}
 {% endblock subject %}
 
@@ -16,6 +16,6 @@
 
 {% block body_text_inner %}
     {% autoescape false %}
-        {{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
+        {{ 'registration.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
     {% endautoescape %}
 {% endblock body_text_inner %}
