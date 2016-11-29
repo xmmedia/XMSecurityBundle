@@ -12,7 +12,7 @@ services:
 
     xm_security.auth.registration_listener:
         class: XM\SecurityBundle\Listener\RegistrationListener
-        arguments: ["@fos_user.user_manager", "@app.mail_manager", "%admin_email%"]
+        arguments: ["@fos_user.user_manager", "@xm_mail_manager.manager", "%admin_email%"]
         tags:
             - { name: kernel.event_subscriber }
 

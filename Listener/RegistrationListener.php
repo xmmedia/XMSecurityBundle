@@ -2,11 +2,11 @@
 
 namespace XM\SecurityBundle\Listener;
 
-use AppBundle\Component\MailManager;
 use FOS\UserBundle\Doctrine\UserManager;
 use FOS\UserBundle\FOSUserEvents;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use XM\MailManagerBundle\Component\MailManager;
 
 class RegistrationListener implements EventSubscriberInterface
 {
@@ -26,7 +26,7 @@ class RegistrationListener implements EventSubscriberInterface
     protected $adminEmail;
 
     /**
-     * RegistrationListener constructor.
+     * Constructor.
      *
      * @param UserManager $userManager
      * @param MailManager $mailManager
@@ -79,7 +79,9 @@ class RegistrationListener implements EventSubscriberInterface
             'user' => $event->getUser(),
         ];
 
-        $this->mailManager->sendEmail($template, $mailParams, $this->adminEmail);
+        $this->mailManager->getSender()
+            ->setTemplate($template, $mailParams)
+            ->send($this->adminEmail);
     }
 
     /**
