@@ -37,9 +37,18 @@ class XMSecurityExtension extends Extension implements PrependExtensionInterface
     {
         $config = [
             'user_class' => 'XM\SecurityBundle\Entity\User',
+            'service' => [
+                'mailer' => 'fos_user.mailer.twig_swift',
+            ],
+            'resetting' => [
+                'email' => [
+                    'template' => 'XMSecurityBundle:Mail:reset_request.html.twig', 
+                ],
+            ],
             'registration' => [
                 'confirmation' => [
                     'enabled' => true,
+                    'template' => 'XMSecurityBundle:Mail:registration_confirmation.html.twig',
                 ],
                 'form' => [
                     'type' => 'XM\SecurityBundle\Form\Type\RegistrationFormType',

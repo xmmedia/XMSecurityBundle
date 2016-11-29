@@ -1,0 +1,21 @@
+{% extends 'Mail/base.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block subject %}
+    {% autoescape false %}
+        {{ 'resetting.email.subject'|trans({'%username%': user.username}) }}
+    {% endautoescape %}
+{% endblock subject %}
+
+{% block body_html_inner %}
+    <p>Hello,</p>
+    <p>Need a new password? Click the link below and you'll be redirected to a secure site from which you can set a new password.</p>
+    <a href="{{ confirmationUrl }}" style="display: block; max-width: 250px; margin: 25px auto; padding: 12px; background: #008000; color: #fff; font-size: 18px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px;">Reset Your Password</a>
+{% endblock body_html_inner %}
+
+{% block body_text_inner %}
+    {% autoescape false %}
+        {{ 'resetting.email.message'|trans({'%username%': user.username, '%confirmationUrl%': confirmationUrl}) }}
+    {% endautoescape %}
+{% endblock body_text_inner %}
