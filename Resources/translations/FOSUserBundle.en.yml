@@ -4,6 +4,13 @@ registration:
     flash:
         user_created: Your account has been created successfully.
 
+resetting:
+    check_email: |
+        We've sent you an email with a link to set a new password.
+        Note: You cannot request another new password for %tokenLifetime% hours.
+
+        If you don't get the email, check your spam folder, try again, or contact us for assistance.
+
 security:
     login:
         submit: Login
