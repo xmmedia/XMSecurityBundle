@@ -37,6 +37,13 @@ class User extends BaseUser
     protected $lastName;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="locked", type="boolean")
+     */
+    protected $locked;
+
+    /**
      * @var \DateTimeInterface
      *
      * @ORM\Column(name="registration_date", type="datetime", nullable=true)
@@ -170,6 +177,37 @@ class User extends BaseUser
         } else {
             return $this->getEmail();
         }
+    }
+
+    /**
+     * Get locked
+     *
+     * @return bool
+     */
+    public function getLocked()
+    {
+        return $this->locked;
+    }
+
+    /**
+     * Set locked
+     *
+     * @param boolean $locked
+     * @return User
+     */
+    public function setLocked($locked)
+    {
+        $this->locked = (bool) $locked;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAccountNonLocked()
+    {
+        return !$this->getLocked();
     }
 
     /**
