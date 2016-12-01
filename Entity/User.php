@@ -205,6 +205,29 @@ class User extends BaseUser
     }
 
     /**
+     * Lock the user
+     *
+     * @return User
+     */
+    public function lock()
+    {
+        return $this->setLocked(true);
+    }
+
+    /**
+     * Unlock the user
+     *
+     * @return User
+     */
+    public function unlock()
+    {
+        return $this->setLocked(false);
+    }
+
+    /**
+     * True if the account is unlocked.
+     * False if the account is locked.
+     *
      * @return bool
      */
     public function isAccountNonLocked()
