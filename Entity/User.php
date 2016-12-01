@@ -184,7 +184,7 @@ class User extends BaseUser
      *
      * @return bool
      */
-    public function getLocked()
+    public function isLocked()
     {
         return $this->locked;
     }
@@ -207,7 +207,7 @@ class User extends BaseUser
      */
     public function isAccountNonLocked()
     {
-        return !$this->getLocked();
+        return !$this->isLocked();
     }
 
     /**
