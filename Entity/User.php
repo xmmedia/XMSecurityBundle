@@ -70,6 +70,8 @@ class User extends BaseUser
     {
         parent::__construct();
 
+        $this->locked = false;
+
         $this->authLogs = new ArrayCollection();
     }
 
