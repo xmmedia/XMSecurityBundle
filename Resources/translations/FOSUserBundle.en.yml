@@ -5,6 +5,8 @@ registration:
         user_created: Your account has been created successfully.
 
 resetting:
+    email:
+        subject: 'Reset Your Password'
     check_email: |
         We've sent you an email with a link to set a new password.
         Note: You cannot request another new password for %tokenLifetime% hours.
