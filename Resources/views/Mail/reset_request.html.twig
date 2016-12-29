@@ -12,6 +12,8 @@
     <p>Hello,</p>
     <p>Need a new password? Click the link below and you'll be redirected to a secure site from which you can set a new password.</p>
     <a href="{{ confirmationUrl }}" style="display: block; max-width: 250px; margin: 25px auto; padding: 12px; background: #008000; color: #fff; font-size: 18px; font-weight: bold; text-align: center; text-decoration: none; border-radius: 5px;">Reset Your Password</a>
+    <p>Your username is: {{ user.username }}</p>
+    <p>If you did not request a new password, you can ignore this email.</p>
 {% endblock body_html_inner %}
 
 {% block body_text_inner %}
