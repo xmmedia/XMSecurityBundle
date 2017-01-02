@@ -41,6 +41,8 @@ class XMSecurityExtension extends Extension implements PrependExtensionInterface
                 'mailer' => 'fos_user.mailer.twig_swift',
             ],
             'resetting' => [
+                // 3 hours
+                'token_ttl' => (3 * 60 * 60),
                 'email' => [
                     'template' => 'XMSecurityBundle:Mail:reset_request.html.twig', 
                 ],
