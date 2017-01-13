@@ -30,6 +30,6 @@ services:
 
     xm_security.auth.resetting_listener:
         class: XM\SecurityBundle\Listener\ResettingListener
-        arguments: ["@router"]
+        arguments: ["@router", "@security.token_storage"]
         tags:
             - { name: kernel.event_subscriber }
