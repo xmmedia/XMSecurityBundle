@@ -10,6 +10,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class ResettingListener implements EventSubscriberInterface
 {
@@ -57,10 +58,13 @@ class ResettingListener implements EventSubscriberInterface
     public function checkCurrentUser(GetResponseUserEvent $event)
     {
         $currentUser = $this->tokenStorage->getToken()->getUser();
-        $resetUser = $event->getUser();
 
-        if ($currentUser->getId() !== $resetUser->getId()) {
-            $this->setRedirecToLogin($event);
+        if ($currentUser instanceof UserInterface) {
+            $resetUser = $event->getUser();
+
+            if ($currentUser->getId() !== $resetUser->getId()) {
+                $this->setRedirecToLogin($event);
+            }
         }
     }
 
