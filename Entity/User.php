@@ -60,7 +60,7 @@ class User extends BaseUser
     /**
      * @var ArrayCollection
      *
-     * @ORM\OneToMany(targetEntity="AuthLog", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="AuthLog", mappedBy="user", cascade={"remove"})
      * @ORM\OrderBy({"datetime" = "DESC"})
      */
     protected $authLogs;
