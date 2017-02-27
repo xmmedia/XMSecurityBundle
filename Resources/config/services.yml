@@ -33,3 +33,9 @@ services:
         arguments: ["@router", "@security.token_storage"]
         tags:
             - { name: kernel.event_subscriber }
+
+    xm_security.auth.last_login_listener:
+        class: XM\SecurityBundle\Listener\LastLoginListener
+        arguments: ["@fos_user.user_manager"]
+        tags:
+            - { name: kernel.event_subscriber }
