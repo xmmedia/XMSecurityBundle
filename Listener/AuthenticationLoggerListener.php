@@ -55,7 +55,8 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
     {
         return [
             SecurityEvents::INTERACTIVE_LOGIN            => 'logSuccess',
-            FOSUserEvents::REGISTRATION_CONFIRMED        => 'logRegistrationSuccess',
+            FOSUserEvents::RESETTING_RESET_COMPLETED     => 'logSuccess',
+            FOSUserEvents::REGISTRATION_CONFIRMED        => 'logSuccess',
             AuthenticationEvents::AUTHENTICATION_FAILURE => 'logFailure',
         ];
     }
@@ -72,18 +73,6 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
         $user->incrementLoginCount();
 
         $this->userManager->updateUser($user);
-
-        $this->addLogSuccess($user);
-    }
-
-    /**
-     * Logs the successful login.
-     * Event will be passed but we don't use it or care what it is.
-     */
-    public function logRegistrationSuccess()
-    {
-        /** @var XM\SecurityBundle\Entity\User $user */
-        $user = $this->tokenStorage->getToken()->getUser();
 
         $this->addLogSuccess($user);
     }
