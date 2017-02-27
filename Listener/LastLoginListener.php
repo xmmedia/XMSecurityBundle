@@ -29,11 +29,9 @@ class LastLoginListener implements EventSubscriberInterface
      */
     public static function getSubscribedEvents()
     {
-        $events = parent::getSubscribedEvents();
-
-        $events[FOSUserEvents::RESETTING_RESET_COMPLETED] = 'onReset';
-
-        return $events;
+        return [
+            FOSUserEvents::RESETTING_RESET_COMPLETED => 'onReset',
+        ];
     }
 
     /**
