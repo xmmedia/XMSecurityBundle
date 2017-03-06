@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @UniqueEntity("email", message="xm_security.validation.user.email_unique", groups={"Registration", "Profile"})
+ * @UniqueEntity("email", message="xm_security.validation.user.email_unique", groups={"Registration", "Profile", "UserAdmin"})
  * @UniqueEntity("username", groups={"Registration", "Profile"})
  */
 class User extends BaseUser
@@ -17,11 +17,20 @@ class User extends BaseUser
     /**
      * @var string
      *
+     * @Assert\NotBlank(groups={"Registration", "Profile", "UserAdmin"})
+     * @Assert\Length(min=2, max=180, groups={"Registration", "Profile", "UserAdmin"})
+     * @Assert\Email(groups={"Registration", "Profile", "UserAdmin"})
+     */
+    protected $email;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="first_name", type="string", length=255, nullable=true,
      *     options={"collation":"utf8mb4_unicode_ci"}
      * )
-     * @Assert\NotBlank(groups={"Registration", "Profile"})
-     * @Assert\Length(min=2, max=255, groups={"Registration", "Profile"})
+     * @Assert\NotBlank(groups={"Registration", "Profile", "UserAdmin"})
+     * @Assert\Length(min=2, max=255, groups={"Registration", "Profile", "UserAdmin"})
      */
     protected $firstName;
 
@@ -31,8 +40,8 @@ class User extends BaseUser
      * @ORM\Column(name="last_name", type="string", length=255, nullable=true,
      *     options={"collation":"utf8mb4_unicode_ci"}
      * )
-     * @Assert\NotBlank(groups={"Registration", "Profile"})
-     * @Assert\Length(min=2, max=255, groups={"Registration", "Profile"})
+     * @Assert\NotBlank(groups={"Registration", "Profile", "UserAdmin"})
+     * @Assert\Length(min=2, max=255, groups={"Registration", "Profile", "UserAdmin"})
      */
     protected $lastName;
 
