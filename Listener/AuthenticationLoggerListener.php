@@ -70,11 +70,13 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
         /** @var XM\SecurityBundle\Entity\User $user */
         $user = $this->tokenStorage->getToken()->getUser();
 
-        $user->incrementLoginCount();
+        if ($user instanceof \XM\SecurityBundle\Entity\User) {
+            $user->incrementLoginCount();
 
-        $this->userManager->updateUser($user);
+            $this->userManager->updateUser($user);
 
-        $this->addLogSuccess($user);
+            $this->addLogSuccess($user);
+        }
     }
 
     /**
