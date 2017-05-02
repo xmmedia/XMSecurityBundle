@@ -22,9 +22,13 @@ class ProfileFormType extends AbstractType
                 'attr' => ['maxlength' => 180],
             ])
             ->add('firstName', null, [
+                'label' => 'form.first_name',
+                'translation_domain' => 'FOSUserBundle',
                 'attr' => ['maxlength' => 255],
             ])
             ->add('lastName', null, [
+                'label' => 'form.last_name',
+                'translation_domain' => 'FOSUserBundle',
                 'attr' => ['maxlength' => 255],
             ])
         ;
