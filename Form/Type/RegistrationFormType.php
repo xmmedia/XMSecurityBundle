@@ -2,6 +2,7 @@
 
 namespace XM\SecurityBundle\Form\Type;
 
+use FOS\UserBundle\Form\Type\RegistrationFormType as FOSRegistrationFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -37,7 +38,7 @@ class RegistrationFormType extends AbstractType
      */
     public function getParent()
     {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+        return FOSRegistrationFormType::class;
     }
 
     /**

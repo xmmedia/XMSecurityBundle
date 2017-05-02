@@ -2,6 +2,7 @@
 
 namespace XM\SecurityBundle\Form\Type;
 
+use FOS\UserBundle\Form\Type\ProfileFormType as FOSProfileFormType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -34,7 +35,7 @@ class ProfileFormType extends AbstractType
      */
     public function getParent()
     {
-        return 'FOS\UserBundle\Form\Type\ProfileFormType';
+        return FOSProfileFormType::class;
     }
 
     /**
