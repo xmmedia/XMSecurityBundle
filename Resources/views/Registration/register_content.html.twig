@@ -1,10 +1,10 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="form-form_wrap">
-    <h1>Register</h1>
-    <p>Complete the form below to create an account.</p>
+    <h1>{{ 'xm_security.register.form_title'|trans([], 'XMSecurityBundle') }}</h1>
+    <p>{{ 'xm_security.register.preamble'|trans([], 'XMSecurityBundle') }}</p>
 
-    {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_start(form, { 'method': 'post', 'action': path('fos_user_registration_register') }) }}
         {{ form_errors(form) }}
 
         {{ form_row(form.email) }}
@@ -16,13 +16,14 @@
             {{ form_errors(form.plainPassword.first) }}
             {# the autocomplete attr is for Safari & autofill #}
             {{ form_widget(form.plainPassword.first, { 'attr' : { 'autocomplete' : 'new-password' }}) }}
-            <div class="form-field_help">Use at least 8 characters.</div>
+            <div class="form-field_help">{{ 'xm_security.password.help'|trans([], 'XMSecurityBundle') }}</div>
         </div>
 
         {{ form_row(form.plainPassword.second) }}
 
         <div class="form-button_wrap">
             <button>{{ 'registration.submit'|trans }}</button>
+            <a href="{{ path('fos_user_security_login') }}" class="form-action_link">{{ 'xm_security.login'|trans([], 'XMSecurityBundle') }}</a>
         </div>
     {{ form_end(form) }}
 </div>

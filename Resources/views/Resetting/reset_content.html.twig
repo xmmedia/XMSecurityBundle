@@ -1,21 +1,23 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="form-form_wrap">
-    <h1>Password Reset</h1>
-    {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}), 'attr': { 'class': 'fos_user_resetting_reset' } }) }}
+    <h1>{{ 'xm_security.resetting.form_title'|trans([], 'XMSecurityBundle') }}</h1>
+
+    {{ form_start(form, { 'action': path('fos_user_resetting_reset', {'token': token}) }) }}
+
         <div class="form-field_wrap">
             {{ form_label(form.plainPassword.first) }}
             {{ form_errors(form.plainPassword.first) }}
             {# the autocomplete attr is for Safari & autofill #}
             {{ form_widget(form.plainPassword.first, { 'attr' : { 'autocomplete' : 'new-password' }}) }}
-            <div class="form-field_help">Use at least 8 characters.</div>
+            <div class="form-field_help">{{ 'xm_security.password.help'|trans([], 'XMSecurityBundle') }}</div>
         </div>
 
         {{ form_row(form.plainPassword.second) }}
 
         <div class="form-button_wrap">
             <button type="submit">{{ 'resetting.reset.submit'|trans }}</button>
-            <a href="{{ path('fos_user_security_login') }}" class="form-action_link">Login</a>
+            <a href="{{ path('fos_user_security_login') }}" class="form-action_link">{{ 'xm_security.login'|trans([], 'XMSecurityBundle') }}</a>
         </div>
     {{ form_end(form) }}
 </div>

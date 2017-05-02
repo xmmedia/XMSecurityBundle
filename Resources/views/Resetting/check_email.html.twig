@@ -2,12 +2,12 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block page_title %}Password Reset | {% endblock %}
+{% block page_title %}{{ 'xm_security.resetting.page_title'|trans([], 'XMSecurityBundle') }} | {% endblock %}
 
 {% block fos_user_content %}
     <div class="alert alert-type-info">
-        {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+        {{ 'resetting.check_email'|trans({ '%tokenLifetime%': tokenLifetime })|nl2br }}
         <br>
-        <a href="{{ path('fos_user_security_login') }}">Return to the login</a>
+        <a href="{{ path('fos_user_security_login') }}">{{ 'xm_security.resetting.return_to_login'|trans([], 'XMSecurityBundle') }}</a>
     </div>
 {% endblock %}

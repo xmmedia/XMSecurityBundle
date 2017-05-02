@@ -2,7 +2,7 @@
 
 {% trans_default_domain 'FOSUserBundle' %}
 
-{% block page_title %}Login | {% endblock %}
+{% block page_title %}{{ 'xm_security.login.page_title'|trans([], 'XMSecurityBundle') }} | {% endblock %}
 
 {% block fos_user_content %}
     {% if error %}
@@ -10,7 +10,8 @@
     {% endif %}
 
     <div class="form-form_wrap">
-        <h1>Login</h1>
+        <h1>{{ 'xm_security.login.form_title'|trans([], 'XMSecurityBundle') }}</h1>
+
         <form action="{{ path('fos_user_security_check') }}" method="post">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
             {% if target_path is defined %}
@@ -34,7 +35,7 @@
 
             <div class="form-button_wrap">
                 <button type="submit" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
-                <a href="{{ path('fos_user_resetting_request') }}" class="form-action_link">Forgot password?</a>
+                <a href="{{ path('fos_user_resetting_request') }}" class="form-action_link">{{ 'xm_security.forgot_password'|trans([], 'XMSecurityBundle') }}</a>
             </div>
         </form>
     </div>

@@ -1,6 +1,6 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
-{% block page_title %}Password Reset | {% endblock %}
+{% block page_title %}{{ 'xm_security.resetting.page_title'|trans([], 'XMSecurityBundle') }} | {% endblock %}
 
 {% block fos_user_content %}
     {% include "FOSUserBundle:Resetting:reset_content.html.twig" %}

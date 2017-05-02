@@ -1,4 +1,10 @@
 # this is YAML because FOS User Bundle is
+security:
+    login:
+        username: Email Address
+        remember_me: 'Remember Me'
+        submit: Login
+
 registration:
     check_email: An email has been sent to %email%. It contains an activation link you must click to activate your account. It may take a few minutes to arrive. If it doesn't, please check your spam/junk folder before contacting us.
     flash:
@@ -12,7 +18,15 @@ resetting:
         Note: You cannot request another new password for %tokenLifetime% hours.
 
         If you don't get the email, check your spam folder, try again, or contact us for assistance.
+    request:
+        username: 'Enter your Email Address to begin'
+        submit: 'Reset Password'
+    reset:
+        submit: 'Change Password'
 
-security:
-    login:
-        submit: Login
+change_password:
+    submit: 'Change Password'
+
+form:
+    first_name: 'First Name'
+    last_name: 'Last Name'

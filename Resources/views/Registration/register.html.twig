@@ -1,6 +1,6 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 
-{% block page_title %}Register | {% endblock %}
+{% block page_title %}{{ 'xm_security.register.page_title'|trans([], 'XMSecurityBundle') }} | {% endblock %}
 
 {% block fos_user_content %}
     {% include "FOSUserBundle:Registration:register_content.html.twig" %}

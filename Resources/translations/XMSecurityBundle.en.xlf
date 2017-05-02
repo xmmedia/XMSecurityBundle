@@ -11,6 +11,82 @@
                 <source>xm_security.parameter.name_full</source>
                 <target>Company Name</target>
             </trans-unit>
+
+            <trans-unit id="xm_security.login.page_title">
+                <source>xm_security.login.page_title</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="xm_security.login.form_title">
+                <source>xm_security.login.form_title</source>
+                <target>Login</target>
+            </trans-unit>
+
+            <trans-unit id="xm_security.change_password.page_title">
+                <source>xm_security.change_password.page_title</source>
+                <target>Change Password</target>
+            </trans-unit>
+            <trans-unit id="xm_security.change_password.form_title">
+                <source>xm_security.change_password.form_title</source>
+                <target>Change Password</target>
+            </trans-unit>
+
+            <trans-unit id="xm_security.profile.page_title">
+                <source>xm_security.profile.page_title</source>
+                <target>Profile</target>
+            </trans-unit>
+            <trans-unit id="xm_security.profile.form_title">
+                <source>xm_security.profile.form_title</source>
+                <target>Profile Update</target>
+            </trans-unit>
+
+            <trans-unit id="xm_security.register.page_title">
+                <source>xm_security.register.page_title</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="xm_security.register.form_title">
+                <source>xm_security.register.form_title</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="xm_security.register.preamble">
+                <source>xm_security.register.preamble</source>
+                <target>Complete the form below to create an account.</target>
+            </trans-unit>
+
+            <trans-unit id="xm_security.resetting.page_title">
+                <source>xm_security.resetting.page_title</source>
+                <target>Password Reset</target>
+            </trans-unit>
+            <trans-unit id="xm_security.resetting.form_title">
+                <source>xm_security.resetting.form_title</source>
+                <target>Password Reset</target>
+            </trans-unit>
+            <trans-unit id="xm_security.resetting.return_to_login">
+                <source>xm_security.resetting.return_to_login</source>
+                <target>Return to the login</target>
+            </trans-unit>
+
+            <trans-unit id="xm_security.password.help">
+                <source>xm_security.password.help</source>
+                <target>Use at least 8 characters.</target>
+            </trans-unit>
+
+            <trans-unit id="xm_security.change_password">
+                <source>xm_security.change_password</source>
+                <target>Change Password</target>
+            </trans-unit>
+
+            <trans-unit id="xm_security.login">
+                <source>xm_security.login</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="xm_security.cancel">
+                <source>xm_security.cancel</source>
+                <target>Cancel</target>
+            </trans-unit>
+            <trans-unit id="xm_security.forgot_password">
+                <source>xm_security.forgot_password</source>
+                <target>Forgot password?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
