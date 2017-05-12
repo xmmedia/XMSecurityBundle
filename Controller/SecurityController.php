@@ -42,6 +42,8 @@ class SecurityController extends BaseSecurityController
             $data['target_path'] = $this->targetPath;
         }
 
+        $data['registration_is_enabled'] = $this->isRegistrationEnabled();
+
         return parent::renderLogin($data);
     }
 
@@ -75,5 +77,17 @@ class SecurityController extends BaseSecurityController
         if ($targetPath) {
             $this->targetPath = $targetPath;
         }
+    }
+
+    /**
+     * Returns true when registration is enabled.
+     *
+     * @return bool
+     */
+    protected function isRegistrationEnabled()
+    {
+        $routes = $this->container->get('router')->getRouteCollection();
+
+        return (null !== $routes->get('fos_user_registration_register'));
     }
 }
