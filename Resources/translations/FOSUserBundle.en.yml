@@ -30,3 +30,7 @@ change_password:
 form:
     first_name: 'First Name'
     last_name: 'Last Name'
+    current_password: 'Current Password'
+    password_confirmation: 'Repeat Password'
+    new_password: 'New Password'
+    new_password_confirmation: 'Repeat New Password'
