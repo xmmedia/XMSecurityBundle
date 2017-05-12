@@ -8,6 +8,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ProfileFormType extends AbstractType
 {
+    /**
+     * {@inheritdoc}
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         // username is their email

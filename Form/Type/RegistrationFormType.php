@@ -16,7 +16,7 @@ class RegistrationFormType extends AbstractType
         // username is their email
         $builder->remove('username')
             // we'll re-add the email field below
-                ->remove('email');
+            ->remove('email');
 
         $builder
             ->add('email', null, [
