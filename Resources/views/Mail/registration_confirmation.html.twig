@@ -4,7 +4,11 @@
 
 {% block subject %}
     {% autoescape false %}
-        {{ 'registration.email.subject'|trans({'%username%': user.username}) }}
+        {{ 'registration.email.subject'|trans({
+            '%company_name%': 'xm_security.parameter.name'|trans([], 'XMSecurityBundle')
+            '%name%': user.name,
+            '%username%': user.username,
+        }) }}
     {% endautoescape %}
 {% endblock subject %}
 
