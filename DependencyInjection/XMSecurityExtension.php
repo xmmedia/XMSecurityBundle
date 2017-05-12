@@ -54,13 +54,11 @@ class XMSecurityExtension extends Extension implements PrependExtensionInterface
                 ],
                 'form' => [
                     'type' => 'XM\SecurityBundle\Form\Type\RegistrationFormType',
-                    'validation_groups' => ['Registration'],
                 ]
             ],
             'profile' => [
                 'form' => [
                     'type' => 'XM\SecurityBundle\Form\Type\ProfileFormType',
-                    'validation_groups' => ['Profile'],
                 ]
             ],
         ];
