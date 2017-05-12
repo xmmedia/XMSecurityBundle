@@ -85,7 +85,7 @@
             </trans-unit>
             <trans-unit id="xm_security.forgot_password">
                 <source>xm_security.forgot_password</source>
-                <target>Forgot password?</target>
+                <target>Forgot your password?</target>
             </trans-unit>
         </body>
     </file>
