@@ -86,7 +86,13 @@ class SecurityController extends BaseSecurityController
      */
     protected function isRegistrationEnabled()
     {
-        $routes = $this->container->get('router')->getRouteCollection();
+        $router = $this->container->get('router');
+
+        if (get_class($router) == 'JMS\I18nRoutingBundle\Router\I18nRouter') {
+            $routes = $router->getOriginalRouteCollection();
+        } else {
+            $routes = $router->getRouteCollection();
+        }
 
         return (null !== $routes->get('fos_user_registration_register'));
     }
