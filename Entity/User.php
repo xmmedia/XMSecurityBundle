@@ -311,24 +311,4 @@ class User extends BaseUser
     {
         return $this->authLogs;
     }
-
-    /**
-     * @todo docs and move elsewhere?
-     * @return string
-     */
-    public function rolesAsText()
-    {
-        $roles = $this->getRoles();
-
-        $text = [];
-        foreach ($roles as $role) {
-            switch ($role) {
-                case 'ROLE_SUPER_ADMIN' :
-                    $text[] = 'Super Admin';
-                    break;
-            }
-        }
-
-        return implode(', ', $text);
-    }
 }
