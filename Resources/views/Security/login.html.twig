@@ -45,7 +45,7 @@
 
     {% if registration_is_enabled %}
         <div class="content-wrap_inside -text-center">
-            <a href="{{ path('fos_user_registration_register') }}" class="button">Register</a>
+            <a href="{{ path('fos_user_registration_register') }}" class="button">{{ 'registration.submit'|trans }}</a>
         </div>
     {% endif %}
 {% endblock fos_user_content %}
