@@ -21,8 +21,11 @@ class AuthenticationSuccessHandler extends DefaultAuthenticationSuccessHandler
      * @param array $options
      * @param AuthorizationChecker $authChecker
      */
-    public function __construct(HttpUtils $httpUtils, array $options, AuthorizationChecker $authChecker)
-    {
+    public function __construct(
+        HttpUtils $httpUtils,
+        array $options,
+        AuthorizationChecker $authChecker
+    ) {
         parent::__construct($httpUtils, $options);
 
         $this->authChecker = $authChecker;
