@@ -21,8 +21,11 @@ class SecurityController extends BaseSecurityController
     {
         if ($this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             $token = $this->get('security.token_storage')->getToken();
-            $response = $this->get('xm_security.auth.authentication_success_handler')
-                ->onAuthenticationSuccess($request, $token);
+            $handler = $this->get('xm_security.auth.authentication_success_handler');
+            // so they aren't just taken back to the page they were just on
+            // most important when coming from the password reset
+            $handler->setOptions(['use_referer' => false]);
+            $response = $handler->onAuthenticationSuccess($request, $token);
 
             return $response;
         }
