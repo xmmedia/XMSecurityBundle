@@ -16,18 +16,12 @@
         "symfony/form": "~3.0",
         "symfony/framework-bundle": "~3.0",
         "doctrine/orm": "~2.5",
-        "xm/mail-manager-bundle": "dev-master"
+        "xm/mail-manager-bundle": "^0.2"
     },
     "autoload": {
         "psr-4": { "XM\\SecurityBundle\\": "" },
         "exclude-from-classmap": [
             "/Tests/"
         ]
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url":  "git@github.com:xmmedia/XMMailManagerBundle.git"
-        }
-    ]
+    }
 }
