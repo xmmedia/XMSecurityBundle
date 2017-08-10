@@ -87,14 +87,17 @@ class AuthenticationLoggerListener implements EventSubscriberInterface
     public function logFailure(AuthenticationFailureEvent $event)
     {
         $request = $this->requestStack->getCurrentRequest();
-        $exceptionMsg = $event->getAuthenticationException()
-            ->getPrevious()
-            ->getMessage();
+
+        $exception = $event->getAuthenticationException()
+            ->getPrevious();
+        if (null === $exception) {
+            $exception = $event->getAuthenticationException();
+        }
 
         $authLog = $this->createAuthLog();
         $authLog->setSuccess(false);
         $authLog->setUsername($request->request->get('_username'));
-        $authLog->setMessage($exceptionMsg);
+        $authLog->setMessage($exception->getMessage());
 
         $this->em->persist($authLog);
         $this->em->flush();
