@@ -73,6 +73,10 @@
                 <source>xm_security.activate.form_title</source>
                 <target>Account Activation</target>
             </trans-unit>
+            <trans-unit id="xm_security.activate.form_instructions">
+                <source>xm_security.activate.form_instructions</source>
+                <target>To activate your account, enter the same password in the two fields below.</target>
+            </trans-unit>
             <trans-unit id="xm_security.activate.submit">
                 <source>xm_security.activate.submit</source>
                 <target>Set Password &amp; Login</target>

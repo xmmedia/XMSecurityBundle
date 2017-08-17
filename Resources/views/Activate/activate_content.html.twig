@@ -3,7 +3,7 @@
 <div class="form-form_wrap">
     <h1>{{ 'xm_security.activate.form_title'|trans([], 'XMSecurityBundle') }}</h1>
 
-    {# @todo instructions #}
+    <p>{{ 'xm_security.activate.form_instructions'|trans([], 'XMSecurityBundle') }}</p>
 
     {{ form_start(form, { 'action': path('xm_security_activate', {'token': token}) }) }}
 
