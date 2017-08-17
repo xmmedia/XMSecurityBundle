@@ -82,8 +82,26 @@ class ActivateController extends Controller
         }
 
         return $this->render('@XMSecurity/Activate/activate.html.twig', array(
-            'token' => $token,
-            'form' => $form->createView(),
+            'token'       => $token,
+            'form'        => $form->createView(),
+            'target_path' => $this->getTargetPath($request),
         ));
+    }
+
+    /**
+     * Find the target path in the POST or GET.
+     *
+     * @param Request $request
+     *
+     * @return string|null
+     */
+    protected function getTargetPath(Request $request)
+    {
+        $targetPath = $request->request->get('target_path');
+        if (!$targetPath) {
+            $targetPath = $request->query->get('target_path');
+        }
+
+        return $targetPath;
     }
 }

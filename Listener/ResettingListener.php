@@ -8,6 +8,7 @@ use FOS\UserBundle\FOSUserEvents;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -69,12 +70,20 @@ class ResettingListener implements EventSubscriberInterface
     }
 
     /**
-     * Always redirect the user to the login form.
+     * Redirect the user to the target path or default to the login.
      *
      * @param FormEvent $event
      */
     public function setRedirect(FormEvent $event)
     {
+        $targetPath = $this->getTargetPath($event->getRequest());
+
+        if ($targetPath) {
+            $event->setResponse(new RedirectResponse($targetPath));
+
+            return;
+        }
+
         $this->setRedirecToLogin($event);
     }
 
@@ -87,5 +96,22 @@ class ResettingListener implements EventSubscriberInterface
     {
         $url = $this->router->generate('fos_user_security_login');
         $event->setResponse(new RedirectResponse($url));
+    }
+
+    /**
+     * Find the target path in the POST or GET.
+     *
+     * @param Request $request
+     *
+     * @return string|null
+     */
+    protected function getTargetPath(Request $request)
+    {
+        $targetPath = $request->request->get('target_path');
+        if (!$targetPath) {
+            $targetPath = $request->query->get('target_path');
+        }
+
+        return $targetPath;
     }
 }
