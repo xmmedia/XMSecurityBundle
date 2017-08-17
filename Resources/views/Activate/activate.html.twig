@@ -1,0 +1,7 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block page_title %}{{ 'xm_security.activate.page_title'|trans([], 'XMSecurityBundle') }} | {% endblock %}
+
+{% block fos_user_content %}
+    {% include "XMSecurityBundle:Activate:activate_content.html.twig" %}
+{% endblock fos_user_content %}

@@ -65,6 +65,27 @@
                 <target>Return to the login</target>
             </trans-unit>
 
+            <trans-unit id="xm_security.activate.page_title">
+                <source>xm_security.activate.page_title</source>
+                <target>Account Activation</target>
+            </trans-unit>
+            <trans-unit id="xm_security.activate.form_title">
+                <source>xm_security.activate.form_title</source>
+                <target>Account Activation</target>
+            </trans-unit>
+            <trans-unit id="xm_security.activate.submit">
+                <source>xm_security.activate.submit</source>
+                <target>Set Password &amp; Login</target>
+            </trans-unit>
+            <trans-unit id="xm_security.activate.return_to_login">
+                <source>xm_security.activate.return_to_login</source>
+                <target>Go to the login</target>
+            </trans-unit>
+            <trans-unit id="xm_security.activate.success">
+                <source>xm_security.activate.success</source>
+                <target>Your password has been set and your account has been activated.</target>
+            </trans-unit>
+
             <trans-unit id="xm_security.password.help">
                 <source>xm_security.password.help</source>
                 <target>Use at least 8 characters.</target>

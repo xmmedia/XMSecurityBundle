@@ -1,0 +1,25 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="form-form_wrap">
+    <h1>{{ 'xm_security.activate.form_title'|trans([], 'XMSecurityBundle') }}</h1>
+
+    {# @todo instructions #}
+
+    {{ form_start(form, { 'action': path('xm_security_activate', {'token': token}) }) }}
+
+        <div class="form-field_wrap">
+            {{ form_label(form.plainPassword.first) }}
+            {{ form_errors(form.plainPassword.first) }}
+            {# the autocomplete attr is for Safari & autofill #}
+            {{ form_widget(form.plainPassword.first, { 'attr' : { 'autocomplete' : 'new-password' }}) }}
+            <div class="form-field_help">{{ 'xm_security.password.help'|trans([], 'XMSecurityBundle') }}</div>
+        </div>
+
+        {{ form_row(form.plainPassword.second) }}
+
+        <div class="form-button_wrap">
+            <button type="submit">{{ 'xm_security.activate.submit'|trans({}, 'XMSecurityBundle') }}</button>
+            <a href="{{ path('fos_user_security_login') }}" class="form-action_link">{{ 'xm_security.activate.return_to_login'|trans([], 'XMSecurityBundle') }}</a>
+        </div>
+    {{ form_end(form) }}
+</div>
