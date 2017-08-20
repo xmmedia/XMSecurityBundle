@@ -26,9 +26,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="first_name", type="string", length=255, nullable=true,
-     *     options={"collation":"utf8mb4_unicode_ci"}
-     * )
+     * @ORM\Column(name="first_name", type="string", length=255, nullable=true)
      * @Assert\NotBlank(groups={"Registration", "Profile", "UserAdmin"})
      * @Assert\Length(min=2, max=255, groups={"Registration", "Profile", "UserAdmin"})
      */
@@ -37,9 +35,7 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="last_name", type="string", length=255, nullable=true,
-     *     options={"collation":"utf8mb4_unicode_ci"}
-     * )
+     * @ORM\Column(name="last_name", type="string", length=255, nullable=true)
      * @Assert\NotBlank(groups={"Registration", "Profile", "UserAdmin"})
      * @Assert\Length(min=2, max=255, groups={"Registration", "Profile", "UserAdmin"})
      */
