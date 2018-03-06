@@ -9,8 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @UniqueEntity("email", message="xm_security.validation.user.email_unique", groups={"Registration", "Profile", "UserAdmin"})
- * @UniqueEntity("username", groups={"Registration", "Profile"})
+ * @UniqueEntity("username", message="xm_security.validation.user.email_unique", groups={"Registration", "Profile", "UserAdmin"}, errorPath="email")
  */
 class User extends BaseUser
 {
