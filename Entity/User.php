@@ -306,4 +306,14 @@ class User extends BaseUser
     {
         return $this->authLogs;
     }
+
+    /**
+     * Determines if the user can be deleted.
+     *
+     * @return bool
+     */
+    public function isDeletable()
+    {
+        return true;
+    }
 }
