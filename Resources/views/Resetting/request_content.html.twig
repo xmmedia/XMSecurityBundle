@@ -1,11 +1,11 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="form-form_wrap">
+<div class="form-wrap form-form_wrap">
     <h1>{{ 'xm_security.resetting.form_title'|trans([], 'XMSecurityBundle') }}</h1>
 
     <form action="{{ path('fos_user_resetting_send_email') }}" method="POST">
 
-        <div class="form-field_wrap">
+        <div class="field-wrap form-field_wrap">
             {% if invalid_username is defined %}
                 <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
             {% endif %}
@@ -15,7 +15,7 @@
 
         <div class="form-button_wrap">
             <button type="submit">{{ 'resetting.request.submit'|trans }}</button>
-            <a href="{{ path('fos_user_security_login') }}" class="form-action_link">{{ 'xm_security.login'|trans([], 'XMSecurityBundle') }}</a>
+            <a href="{{ path('fos_user_security_login') }}" class="form-action form-action_link">{{ 'xm_security.login'|trans([], 'XMSecurityBundle') }}</a>
         </div>
     </form>
 </div>

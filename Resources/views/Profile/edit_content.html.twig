@@ -1,6 +1,6 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-<div class="form-form_wrap">
+<div class="form-wrap form-form_wrap">
     <h1>{{ 'xm_security.profile.form_title'|trans([], 'XMSecurityBundle') }}</h1>
 
     {{ form_start(form, { 'action': path('fos_user_profile_edit') }) }}
@@ -14,7 +14,7 @@
 
         <div class="form-button_wrap">
             <button>{{ 'profile.edit.submit'|trans }}</button>
-            <a href="{{ path('fos_user_change_password') }}" class="form-action_link">{{ 'xm_security.change_password'|trans([], 'XMSecurityBundle') }}</a>
+            <a href="{{ path('fos_user_change_password') }}" class="form-action form-action_link">{{ 'xm_security.change_password'|trans([], 'XMSecurityBundle') }}</a>
         </div>
     {{ form_end(form) }}
 </div>

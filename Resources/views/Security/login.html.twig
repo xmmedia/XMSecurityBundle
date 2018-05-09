@@ -6,10 +6,10 @@
 
 {% block fos_user_content %}
     {% if error %}
-        <div class="alert alert-type-warning">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert alert-warning alert-type-warning">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <div class="form-form_wrap">
+    <div class="form-wrap form-form_wrap">
         <h1>{{ 'xm_security.login.form_title'|trans([], 'XMSecurityBundle') }}</h1>
 
         <form action="{{ path('fos_user_security_check') }}" method="post">
@@ -18,17 +18,17 @@
                 <input type="hidden" name="_target_path" value="{{ target_path }}">
             {% endif %}
 
-            <div class="form-field_wrap">
+            <div class="field-wrap form-field_wrap">
                 <label for="username">{{ 'security.login.username'|trans }}</label>
                 <input type="text" id="username" name="_username" value="{{ last_username }}" required>
             </div>
 
-            <div class="form-field_wrap">
+            <div class="field-wrap form-field_wrap">
                 <label for="password">{{ 'security.login.password'|trans }}</label>
                 <input type="password" id="password" name="_password" required>
             </div>
 
-            <div class="form-field_wrap form-field_wrap-checkbox">
+            <div class="field-wrap-checkbox form-field_wrap form-field_wrap-checkbox">
                 <input type="checkbox"
                        id="remember_me"
                        name="_remember_me"
@@ -38,14 +38,15 @@
 
             <div class="form-button_wrap">
                 <button type="submit" id="_submit" name="_submit">{{ 'security.login.submit'|trans }}</button>
-                <a href="{{ path('fos_user_resetting_request') }}" class="form-action_link">{{ 'xm_security.forgot_password'|trans([], 'XMSecurityBundle') }}</a>
+                <a href="{{ path('fos_user_resetting_request') }}" class="form-action form-action_link">{{ 'xm_security.forgot_password'|trans([], 'XMSecurityBundle') }}</a>
             </div>
         </form>
     </div>
 
-    {% if registration_is_enabled %}
-        <div class="content-wrap_inside -text-center">
-            <a href="{{ path('fos_user_registration_register') }}" class="button">{{ 'registration.submit'|trans }}</a>
+    {#{% if registration_is_enabled %}#}
+        <div class="content-wrap_inside -text-center mt-8 mb-4 text-center">
+            <a href="" class="button">{{ 'registration.submit'|trans }}</a>
+            {#<a href="{{ path('fos_user_registration_register') }}" class="button">{{ 'registration.submit'|trans }}</a>#}
         </div>
-    {% endif %}
+    {#{% endif %}#}
 {% endblock fos_user_content %}
