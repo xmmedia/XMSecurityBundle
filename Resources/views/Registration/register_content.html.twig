@@ -1,7 +1,7 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
 <div class="form-wrap form-form_wrap">
-    <h1>{{ 'xm_security.register.form_title'|trans([], 'XMSecurityBundle') }}</h1>
+    <h1 class="mt-0">{{ 'xm_security.register.form_title'|trans([], 'XMSecurityBundle') }}</h1>
     <p>{{ 'xm_security.register.preamble'|trans([], 'XMSecurityBundle') }}</p>
 
     {{ form_start(form, { 'method': 'post', 'action': path('fos_user_registration_register') }) }}

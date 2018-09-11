@@ -5,7 +5,7 @@
 {% block page_title %}{{ 'xm_security.resetting.page_title'|trans([], 'XMSecurityBundle') }} | {% endblock %}
 
 {% block fos_user_content %}
-    <div class="alert alert-info alert-type-info">
+    <div class="alert alert-info alert-type-info mt-4">
         {{ 'resetting.check_email'|trans({ '%tokenLifetime%': tokenLifetime })|nl2br }}
         <br>
         <a href="{{ path('fos_user_security_login') }}">{{ 'xm_security.resetting.return_to_login'|trans([], 'XMSecurityBundle') }}</a>

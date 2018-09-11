@@ -10,7 +10,7 @@
     {% endif %}
 
     <div class="form-wrap form-form_wrap">
-        <h1>{{ 'xm_security.login.form_title'|trans([], 'XMSecurityBundle') }}</h1>
+        <h1 class="mt-0">{{ 'xm_security.login.form_title'|trans([], 'XMSecurityBundle') }}</h1>
 
         <form action="{{ path('fos_user_security_check') }}" method="post">
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
