@@ -50,16 +50,17 @@ class RegistrationConfirmationController extends Controller
                 $this->addFlash('warning', 'Your account is already enabled.');
             } else {
                 $this->addFlash('warning', 'The user is already enabled.');
-
             }
 
             return $this->redirect($redirect);
         }
 
         if (null === $user->getConfirmationToken()) {
-            throw new \InvalidArgumentException(
-                'The user does not have a confirmation token and therefore cannot be activated.'
+            $user->setConfirmationToken(
+                $this->get('fos_user.util.token_generator')
+                    ->generateToken()
             );
+            $this->get('fos_user.user_manager')->updateUser($user);
         }
 
         $this->get('fos_user.mailer')->sendConfirmationEmailMessage($user);
