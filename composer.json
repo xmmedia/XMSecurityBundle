@@ -12,11 +12,11 @@
     ],
     "require": {
         "php": "^5.6 || ^7.0",
-        "friendsofsymfony/user-bundle": "~2.0.0-beta1",
-        "symfony/form": "~3.0",
-        "symfony/framework-bundle": "~3.0",
-        "doctrine/orm": "~2.5",
-        "xm/mail-manager-bundle": "~0.2"
+        "friendsofsymfony/user-bundle": "^2.0",
+        "symfony/form": "^3.0",
+        "symfony/framework-bundle": "^3.0",
+        "doctrine/orm": "^2.5",
+        "xm/mail-manager-bundle": "^0.2"
     },
     "autoload": {
         "psr-4": { "XM\\SecurityBundle\\": "" },
