@@ -5,9 +5,12 @@ namespace XM\SecurityBundle\Controller;
 use FOS\UserBundle\Controller\SecurityController as BaseSecurityController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Http\Util\TargetPathTrait;
 
 class SecurityController extends BaseSecurityController
 {
+    use TargetPathTrait;
+
     /**
      * The target path, used during the login and passed to the login view.
      * @var string
@@ -32,6 +35,14 @@ class SecurityController extends BaseSecurityController
 
         $this->pullUsernameFromQuery($request);
         $this->pullTargetPathFromQuery($request);
+
+        if ($this->targetPath) {
+            $this->saveTargetPath(
+                $request->getSession(),
+                'main',
+                $this->targetPath
+            );
+        }
 
         return parent::loginAction($request);
     }
@@ -76,6 +87,9 @@ class SecurityController extends BaseSecurityController
     protected function pullTargetPathFromQuery(Request $request)
     {
         $targetPath = $request->query->get('target_path');
+        if (!$targetPath) {
+            $targetPath = $request->query->get('_target_path');
+        }
 
         if ($targetPath) {
             $this->targetPath = $targetPath;
