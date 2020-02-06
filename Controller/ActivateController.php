@@ -102,6 +102,12 @@ class ActivateController extends Controller
         if (!$targetPath) {
             $targetPath = $request->query->get('target_path');
         }
+        if (!$targetPath) {
+            $targetPath = $request->request->get('_target_path');
+        }
+        if (!$targetPath) {
+            $targetPath = $request->query->get('_target_path');
+        }
 
         return $targetPath;
     }
