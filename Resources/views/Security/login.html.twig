@@ -43,7 +43,7 @@
         </form>
     </div>
 
-    {% if registration_is_enabled %}
+    {% if registration_is_enabled is defined and registration_is_enabled %}
         <div class="content-wrap_inside -text-center mt-8 mb-4 text-center">
             <a href="{{ path('fos_user_registration_register') }}" class="button">{{ 'registration.submit'|trans }}</a>
         </div>
